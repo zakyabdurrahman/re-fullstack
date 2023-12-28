@@ -5,8 +5,7 @@
 Struktur Folder:
 
 - server (PORT: 3000)
-- client-public
-- client-cms
+- client-public-cms
 
 ## W2D1
 
