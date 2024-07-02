@@ -1,5 +1,7 @@
 
+import Actions from './components/Actions';
 import Navbar from './components/Navbar';
+import Pagination from './components/Pagination';
 import ProductCards from './components/ProductCards';
 
 function App() {
@@ -7,8 +9,9 @@ function App() {
   return (
     <>
       <Navbar></Navbar>
-      <p className="py-6 text-center">Enjoy out vast collection of cars and graphic cards</p>
+      <Actions></Actions>
       <ProductCards></ProductCards>
+      <Pagination></Pagination>
     </>
   )
 }
