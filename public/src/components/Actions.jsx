@@ -2,25 +2,23 @@ export default function Actions() {
     return (
         <>
             <div className="flex justify-end mt-2">
-            <div>
-                    <p className="inline mr-2">Filter</p>
-                    <details className="dropdown mr-4">
-                    <summary className="btn m-1">Newest</summary>
-                    <ul className="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
-                        <li><a>Newest</a></li>
-                        <li><a>Oldest</a></li>
-                    </ul>
-                    </details>
+                <div>
+                    <p className="inline mr-2">Category</p>
+                    <select className="select select-bordered max-w-xs mr-4">
+                        <option disabled selected>Select category</option>
+                        <option>Han Solo</option>
+                        <option>Greedo</option>
+                    </select>
                 </div>
                 <div>
                     <p className="inline mr-2">Sort by</p>
-                    <details className="dropdown mr-10">
-                    <summary className="btn m-1">Newest</summary>
-                    <ul className="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
-                        <li><a>Newest</a></li>
-                        <li><a>Oldest</a></li>
-                    </ul>
-                    </details>
+                    <select className="select select-bordered max-w-xs mr-10">
+                        <option disabled selected>....</option>
+                        <option>Han Solo</option>
+                        <option>Greedo</option>
+                    </select>
+
+
                 </div>
                 
             </div>
