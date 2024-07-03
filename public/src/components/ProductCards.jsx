@@ -17,6 +17,7 @@ export default function ProductCards({products}) {
                         title={item.name} 
                         imgUrl={item.imgUrl}
                         desc={item.description}
+                        price={item.price}
                         >
                 
                     </Product>

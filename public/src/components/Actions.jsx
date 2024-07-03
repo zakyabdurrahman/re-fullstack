@@ -9,7 +9,7 @@ export default function Actions({setParam, params}) {
     async function getCategories() {
         const response = await axios.get(`${baseUrl}/pub/branded-things/categories`);
         console.log(response.data.data);
-        setCats(response.data.data)
+        setCats(response.data.data);
     }
 
     function changeCat(e) {
@@ -17,6 +17,12 @@ export default function Actions({setParam, params}) {
         currObj.i = e.target.value;
         setParam(currObj)
     } 
+
+    function changeSort(e) {
+        let newObj = {...params};
+        newObj.sort = e.target.value;
+        setParam(newObj)
+    }
 
     useEffect(() => {
         getCategories();
@@ -28,12 +34,13 @@ export default function Actions({setParam, params}) {
             <div className="flex justify-end mt-2">
                 <div>
                     <p className="inline mr-2">Category</p>
-                    <select className="select select-bordered max-w-xs mr-4" onChange={changeCat}>
+                    <select className="select select-bordered max-w-xs mr-4" 
+                    onChange={changeCat}>
                         <option disabled selected>Select category</option>
                         {cats.map((item) => {
                             return (
                                 <>
-                                    <option key={item.id}>{item.name}</option>
+                                    <option key={item.id} value={item.name}>{item.name}</option>
                                 </>
                             )
                         })}
@@ -41,10 +48,10 @@ export default function Actions({setParam, params}) {
                 </div>
                 <div>
                     <p className="inline mr-2">Sort by</p>
-                    <select className="select select-bordered max-w-xs mr-10">
+                    <select className="select select-bordered max-w-xs mr-10" onChange={changeSort}>
                         <option disabled selected>....</option>
-                        <option>Han Solo</option>
-                        <option>Greedo</option>
+                        <option value="DESC">Latest</option>
+                        <option value="ASC">Oldest</option>
                     </select>
 
 

@@ -24,6 +24,7 @@ export default function ProductPage() {
             });
             setProducts(response.data.data.query);
             setPagination(response.data.data.pagination);
+            
             console.log();
         } catch (error) {
             console.log(error);
@@ -37,7 +38,9 @@ export default function ProductPage() {
       <Actions setParam={setParams} params={params}></Actions>
       <SearchBar setParams={setParams} params={params}></SearchBar>
       <ProductCards products={products}></ProductCards>
-      <Pagination currPage={pagination.currentPage} totalPage={pagination.totalPage}></Pagination>
+      <Pagination currPage={pagination.currentPage} totalPage={pagination.totalPage} 
+        setParams={setParams} params={params}
+      ></Pagination>
       
     </>
     )
