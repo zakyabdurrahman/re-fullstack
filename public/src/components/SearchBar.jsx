@@ -1,9 +1,16 @@
-export default function SearchBar() {
+export default function SearchBar({setParams, params}) {
+
+    function changeParams(e) {
+        let newParams = {...params};
+        newParams.q = e.target.value;
+        setParams(newParams)
+    }
+
     return (
         <>
             <div className="flex justify-center">
                 <label className="input input-bordered flex items-center gap-2 w-96">
-                    <input type="text" className="grow" placeholder="Search" />
+                    <input type="text" className="grow" placeholder="Search" onChange={changeParams} />
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 16 16"

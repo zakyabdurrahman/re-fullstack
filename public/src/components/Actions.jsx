@@ -1,13 +1,42 @@
-export default function Actions() {
+import axios from "axios";
+import { useEffect, useState } from "react"
+import { baseUrl } from "../utils/constants";
+
+export default function Actions({setParam, params}) {
+
+    const [cats, setCats] = useState([]);
+
+    async function getCategories() {
+        const response = await axios.get(`${baseUrl}/pub/branded-things/categories`);
+        console.log(response.data.data);
+        setCats(response.data.data)
+    }
+
+    function changeCat(e) {
+        let currObj = {...params}
+        currObj.i = e.target.value;
+        setParam(currObj)
+    } 
+
+    useEffect(() => {
+        getCategories();
+    }, [])
+
+
     return (
         <>
             <div className="flex justify-end mt-2">
                 <div>
                     <p className="inline mr-2">Category</p>
-                    <select className="select select-bordered max-w-xs mr-4">
+                    <select className="select select-bordered max-w-xs mr-4" onChange={changeCat}>
                         <option disabled selected>Select category</option>
-                        <option>Han Solo</option>
-                        <option>Greedo</option>
+                        {cats.map((item) => {
+                            return (
+                                <>
+                                    <option key={item.id}>{item.name}</option>
+                                </>
+                            )
+                        })}
                     </select>
                 </div>
                 <div>
