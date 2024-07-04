@@ -35,6 +35,11 @@ export default function ProductForm({cats, product}) {
                 })
                 toast('Success Edit Product');
             } else {
+                await axios.post(`${baseUrl}/branded-things/products`, payload, {
+                    headers: {
+                        Authorization: getBearerToken()
+                    }
+                })
                 toast('Success Add Product');
             }
             

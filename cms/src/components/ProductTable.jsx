@@ -39,7 +39,7 @@ export default function ProductTable({data}) {
                         {data.map((product, i) => {
                             return (
                                 <>
-                                    <tr className="hover">
+                                    <tr className="hover" key={product.id}>
                                         <td>{i + 1}</td>
                                         <td>{product.name}</td>
                                         <td className="w-52"><img className="w-52 h-52" src={product.imgUrl} alt="" /></td>
