@@ -41,7 +41,7 @@ export default function ProductsPage() {
         <>
             <Navbar></Navbar>
             <div className="flex h-full">
-                <AdminSidebar></AdminSidebar>
+                <AdminSidebar activePage={"products"}></AdminSidebar>
                 
                 <ProductTable data={data}/>
                 

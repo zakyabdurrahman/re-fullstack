@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import ProductModal from "./ProductModal";
 import axios from "axios";
 import baseUrl from "../../utils/constants";
+import { Link } from "react-router-dom";
 
 export default function ProductTable({data}) {
 
@@ -45,9 +46,10 @@ export default function ProductTable({data}) {
                                         <td className="w-52"><img className="w-52 h-52" src={product.imgUrl} alt="" /></td>
                                         <td>{product.description}</td>
                                         <td className="w-52">
-                                            <a href={`/edit/${product.id}`}>
+                                            <Link to={`/edit/${product.id}`}>
                                                 <button className="btn btn-primary" >Edit</button>
-                                            </a>
+                                            </Link>
+                                           
                                             
                                             
                                         </td>

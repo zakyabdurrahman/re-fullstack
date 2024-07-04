@@ -5,6 +5,7 @@ import authentication from "../middlewares/authentication";
 import ProductForm from "../components/ProductForm";
 import ProductEditPage from "../views/ProductEditPage";
 import ProductAddPage from "../views/ProductAddPage";
+import CatsPage from "../views/CatsPage";
 
 const router = createBrowserRouter([
     {
@@ -25,6 +26,11 @@ const router = createBrowserRouter([
     {
         path:"/add",
         element: <ProductAddPage/>,
+        loader: authentication
+    },
+    {
+        path:"/cats",
+        element: <CatsPage/>,
         loader: authentication
     },
 ])
