@@ -1,5 +1,7 @@
-import ProductDetailPage from "./components/ProductDetailPage"
-import ProductPage from "./components/ProductPage"
+import { RouterProvider } from "react-router-dom"
+import ProductDetailPage from "./views/ProductDetailPage"
+import ProductPage from "./views/ProductPage"
+import router from "./routers/Router"
 
 
 
@@ -7,7 +9,7 @@ function App() {
 
   return (
 
-    <ProductPage></ProductPage>
+    <RouterProvider router={router}></RouterProvider>
     
 
   )

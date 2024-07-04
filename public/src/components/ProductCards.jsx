@@ -14,6 +14,7 @@ export default function ProductCards({products}) {
                 {products.map((item) => {
                     return <Product 
                         key={item.id} 
+                        id={item.id}
                         title={item.name} 
                         imgUrl={item.imgUrl}
                         desc={item.description}

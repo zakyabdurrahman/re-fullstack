@@ -1,4 +1,7 @@
-export default function Product({title, imgUrl, desc, price}) {
+import TextTruncate from "react-text-truncate";
+
+
+export default function Product({title, imgUrl, desc, price, id}) {
     return (
         <>
             <div className="card w-[400px] shadow-xl h-[500px] bg-neutral">
@@ -10,9 +13,13 @@ export default function Product({title, imgUrl, desc, price}) {
                     <p className="mt-2">Price</p>
                     <p className="font-bold">{price}</p>
                     <p className="mt-2 text-justify">{desc}</p>
+                   
                 </div>
                 <div className="w-full mt-2 flex flex-row-reverse">
-                    <button className="btn btn-primary mx-4">Detail</button>
+                    <a href={`/${id}`}>
+                        <button className="btn btn-primary mx-4">Detail</button>
+                    </a>
+                    
                 </div>
             </div>
         </>
