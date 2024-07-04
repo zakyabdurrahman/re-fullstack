@@ -10,8 +10,11 @@ import getBearerToken from "../../utils/getBearerToken";
 
 export default function ProductsPage() {
 
+    
     const [data, setData] = useState([]);
     
+    
+
     async function fetchProducts() {
         try {
             const response = await axios.get(`${baseUrl}/branded-things/products`, {
@@ -35,6 +38,7 @@ export default function ProductsPage() {
             <Navbar></Navbar>
             <div className="flex h-full">
                 <AdminSidebar></AdminSidebar>
+                
                 <ProductTable data={data}/>
                 
             </div>
