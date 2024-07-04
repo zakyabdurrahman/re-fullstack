@@ -1,4 +1,7 @@
 export default function Navbar() {
+
+
+
     return (
         <>
             <div className="h-16 w-screen bg-neutral p-0 flex items-center justify-between px-10">
