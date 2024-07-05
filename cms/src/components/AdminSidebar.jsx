@@ -7,7 +7,7 @@ export default function AdminSidebar({activePage}) {
             
             <li><Link to="/" className={activePage === "products" ? "active" : ""}>Products</Link></li>
             <li><Link to="/cats" className={activePage === "cats" ? "active" : ""}>Categories</Link></li>
-            <li><a>Item 3</a></li>
+            <li><Link to="/add-user" className={activePage === "addUser" ? "active" : ""}>Add User</Link></li>
         </ul>
     )
 }

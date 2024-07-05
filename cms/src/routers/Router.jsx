@@ -7,6 +7,7 @@ import ProductEditPage from "../views/ProductEditPage";
 import ProductAddPage from "../views/ProductAddPage";
 import CatsPage from "../views/CatsPage";
 import ProductEditImagePage from "../views/ProductEditImagePage";
+import AddUserPage from "../views/AddUserPage";
 
 const router = createBrowserRouter([
     {
@@ -37,6 +38,11 @@ const router = createBrowserRouter([
     {
         path:"/upload/:id",
         element: <ProductEditImagePage/>,
+        loader: authentication
+    },
+    {
+        path:"/add-user",
+        element: <AddUserPage/>,
         loader: authentication
     }
 ])
