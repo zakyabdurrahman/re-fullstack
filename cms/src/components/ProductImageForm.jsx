@@ -2,8 +2,11 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import baseUrl from "../../utils/constants";
 import getBearerToken from "../../utils/getBearerToken";
+import { useNavigate } from "react-router-dom";
 
 export default function ProductImageForm({product}) {
+
+    const navigate = useNavigate();
 
     async function handleSubmit(e) {
         e.preventDefault();
@@ -18,7 +21,9 @@ export default function ProductImageForm({product}) {
                     Authorization: getBearerToken()
                 }
             })
+            navigate('/');
             console.log(response, "SEND STATUS");
+
         } catch (error) {
             toast.error(error.message);
         }
