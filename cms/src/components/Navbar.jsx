@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Navbar() {
     
@@ -14,9 +14,10 @@ export default function Navbar() {
     return (
         <>
             <div className="h-16 w-screen bg-neutral flex items-center justify-between px-10">
-                <a href="/">
-                <h2 className="text-center text-2xl font-bold">ASOOS Cars</h2>
-                </a>
+                <Link to={"/"}>
+                    <h2 className="text-center text-2xl font-bold">ASOOS Cars</h2>
+                </Link>
+                
                 
                 <a className="text-red-600 font-bold cursor-pointer" onClick={logout}>Logout</a>
             </div>
