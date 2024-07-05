@@ -15,8 +15,13 @@ export default function ProductEditPage() {
 
     async function getCategories() {
         
-        const response = await axios.get(`${baseUrl}/pub/branded-things/categories`);
+        const response = await axios.get(`${baseUrl}/pub/branded-things/categories`, {
+            headers: {
+                Authorization: getBearerToken()
+            }
+        });
         
+        console.log(response.data)
         setCats(response.data.data);
     }
 

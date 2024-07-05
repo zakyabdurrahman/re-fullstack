@@ -1,2 +1,2 @@
-export const baseUrl = "https://phase2-aio.vercel.app/apis";
+export const baseUrl = "http://server.zakyabdur.tech";
 

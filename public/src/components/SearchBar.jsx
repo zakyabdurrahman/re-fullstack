@@ -2,7 +2,7 @@ export default function SearchBar({setParams, params}) {
 
     function changeParams(e) {
         let newParams = {...params};
-        newParams.q = e.target.value;
+        newParams.search = e.target.value;
         setParams(newParams)
     }
 

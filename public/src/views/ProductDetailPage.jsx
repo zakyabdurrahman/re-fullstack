@@ -8,15 +8,15 @@ export default function ProductDetailPage() {
     const {id} = useParams();
 
     const [data, setData] = useState({});
-    const [cat, setCat] = useState("");
+    
 
     async function fetchProductDetail() {
         try {
             
-            const response = await axios.get(`${baseUrl}/pub/branded-things/products/${id}`);
-            console.log(response.data.data.Category);
-            setCat(response.data.data.Category.name);
-            setData(response.data.data);
+            const response = await axios.get(`${baseUrl}/pub/products/${id}`);
+            console.log(response, 'OBJ DETAIL');
+           
+            setData(response.data.product);
         } catch (error) {
             console.log(error);
         }
@@ -38,8 +38,7 @@ export default function ProductDetailPage() {
                 <p className="mt-1">{data.description}</p>
                 <p className="mt-4 font-bold text-lg">Stock</p>
                 <p className="mt-1">{data.stock}</p>
-                <p className="mt-4 font-bold text-lg">Category</p>
-                <p className="mt-1">{cat}</p>
+                
                 
             </div>
             

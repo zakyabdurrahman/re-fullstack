@@ -7,14 +7,14 @@ export default function Actions({setParam, params}) {
     const [cats, setCats] = useState([]);
 
     async function getCategories() {
-        const response = await axios.get(`${baseUrl}/pub/branded-things/categories`);
-        console.log(response.data.data);
-        setCats(response.data.data);
+        const response = await axios.get(`${baseUrl}/pub/categories`);
+        console.log(response, 'OBJ CATS');
+        setCats(response.data.categories);
     }
 
     function changeCat(e) {
         let currObj = {...params}
-        currObj.i = e.target.value;
+        currObj.filter = e.target.value;
         setParam(currObj)
     } 
 
@@ -40,7 +40,7 @@ export default function Actions({setParam, params}) {
                         {cats.map((item) => {
                             return (
                                 <>
-                                    <option key={item.id} value={item.name}>{item.name}</option>
+                                    <option key={item.id} value={item.id}>{item.name}</option>
                                 </>
                             )
                         })}
@@ -50,8 +50,8 @@ export default function Actions({setParam, params}) {
                     <p className="inline mr-2">Sort by</p>
                     <select className="select select-bordered max-w-xs mr-10" onChange={changeSort}>
                         <option disabled selected>....</option>
-                        <option value="DESC">Latest</option>
-                        <option value="ASC">Oldest</option>
+                        <option value="-createdAt">Latest</option>
+                        <option value="createdAt">Oldest</option>
                     </select>
 
 

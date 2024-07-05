@@ -24,11 +24,13 @@ export default function ProductPage() {
     async function fetchProducts() {
         try {
             setLoading(true);
-            const response = await axios.get(`${baseUrl}/pub/branded-things/products`, {
+            const response = await axios.get(`${baseUrl}/pub/products`, {
                 params: params
             });
-            setProducts(response.data.data.query);
-            setPagination(response.data.data.pagination);
+
+            console.log(response,'OBJ RESPONSE');
+            setProducts(response.data.data);
+            setPagination(response.data);
             
             
         } catch (error) {

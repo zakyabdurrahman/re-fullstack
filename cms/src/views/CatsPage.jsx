@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import axios from "axios";
 import baseUrl from "../../utils/constants";
 import { useEffect, useState } from "react";
+import getBearerToken from "../../utils/getBearerToken";
 
 export default function CatsPage() {
 
@@ -13,7 +14,11 @@ export default function CatsPage() {
     async function getCategories() {
 
         try {
-            const response = await axios.get(`${baseUrl}/pub/branded-things/categories`);
+            const response = await axios.get(`${baseUrl}/branded-things/categories`, {
+                headers: {
+                    Authorization: getBearerToken()
+                }
+            });
         
             setCats(response.data.data);
         } catch (error) {
