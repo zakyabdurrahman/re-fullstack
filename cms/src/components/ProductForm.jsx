@@ -35,7 +35,7 @@ export default function ProductForm({cats, product}) {
                 })
                 toast('Success Edit Product');
             } else {
-                await axios.post(`${baseUrl}/branded-things/products`, payload, {
+                await axios.post(`${baseUrl}/products`, payload, {
                     headers: {
                         Authorization: getBearerToken()
                     }
@@ -67,7 +67,7 @@ export default function ProductForm({cats, product}) {
                         <select id="formCat" className="select w-full max-w-xs mt-4 input-bordered">
                         {cats.map((item) => {
                             return (
-                                    <option selected={item.id === product.categoryId} value={item.id}>{item.name}</option>
+                                    <option value={item.id}>{item.name}</option>
                                 )
                             })}
                         </select>

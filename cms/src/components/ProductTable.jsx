@@ -68,6 +68,9 @@ export default function ProductTable({data, setId}) {
                                                 <Link>
                                                     <button value={product.id} onClick={handleDelete} className="btn btn-warning my-4">Delete</button>
                                                 </Link>
+                                                <Link to={`/upload/${product.id}`}>
+                                                    <button className="btn btn-secondary">Upload Image</button>
+                                                </Link>
                                             </div>
                                             
                                             

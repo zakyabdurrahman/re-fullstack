@@ -6,6 +6,7 @@ import ProductForm from "../components/ProductForm";
 import ProductEditPage from "../views/ProductEditPage";
 import ProductAddPage from "../views/ProductAddPage";
 import CatsPage from "../views/CatsPage";
+import ProductEditImagePage from "../views/ProductEditImagePage";
 
 const router = createBrowserRouter([
     {
@@ -33,6 +34,11 @@ const router = createBrowserRouter([
         element: <CatsPage/>,
         loader: authentication
     },
+    {
+        path:"/upload/:id",
+        element: <ProductEditImagePage/>,
+        loader: authentication
+    }
 ])
 
 export default router;
