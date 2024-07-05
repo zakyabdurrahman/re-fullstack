@@ -1,2 +1,2 @@
-export const baseUrl = "http://server.zakyabdur.tech";
+export const baseUrl = "https://server.zakyabdur.tech";
 
