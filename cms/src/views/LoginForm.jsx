@@ -14,7 +14,8 @@ export default function LoginForm() {
         const email = e.target[0].value;
         const password = e.target[1].value;
         const response = await axios.post(`${baseUrl}/login`, {email, password});
-        localStorage.setItem('access_token', response.data.data.access_token);
+        
+        localStorage.setItem('access_token', response.data.access_token);
         
         navigate('/');
       } catch (error) {

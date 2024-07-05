@@ -15,24 +15,24 @@ export default function ProductEditPage() {
 
     async function getCategories() {
         
-        const response = await axios.get(`${baseUrl}/pub/branded-things/categories`, {
+        const response = await axios.get(`${baseUrl}/categories`, {
             headers: {
                 Authorization: getBearerToken()
             }
         });
         
-        console.log(response.data)
-        setCats(response.data.data);
+        console.log(response, 'OBJ CATS')
+        setCats(response.data.categories);
     }
 
     async function getProduct() {
         try {
-            const response = await axios.get(`${baseUrl}/branded-things/products/${id}`, {
+            const response = await axios.get(`${baseUrl}/products/${id}`, {
                 headers: {
                     Authorization: getBearerToken()
                 }
             });
-            setProduct(response.data.data);
+            setProduct(response.data.product);
 
         } catch (error) {
             console.log(error.message);

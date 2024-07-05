@@ -1,3 +1,3 @@
-const baseUrl = 'https://phase2-aio.vercel.app/apis'
+const baseUrl = 'http://server.zakyabdur.tech'
 
 export default baseUrl

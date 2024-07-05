@@ -14,20 +14,21 @@ export default function ProductsPage() {
     const navigate = useNavigate();
 
     const [data, setData] = useState([]);
-    
+    const [id, setId] = useState(0);
     
 
     async function fetchProducts() {
         try {
-            const response = await axios.get(`${baseUrl}/branded-things/products`, {
+            const response = await axios.get(`${baseUrl}/products`, {
                 headers: {
                     Authorization: getBearerToken()
                 }
             })
-            setData(response.data.data);
-            console.log(response);
+            console.log(response, 'OBJ PRODUCTS');
+            setData(response.data.products);
+            
         } catch (error) {
-            if (error.response.status === 500) navigate('/login');
+            if (error.response.status === 401) navigate('/login');
             console.log(error);
             toast.error(error.message);
         }
@@ -35,7 +36,7 @@ export default function ProductsPage() {
 
     useEffect(() => {
         fetchProducts();
-    }, []);
+    }, [id]);
 
     return (
         <>
@@ -43,7 +44,7 @@ export default function ProductsPage() {
             <div className="flex h-full">
                 <AdminSidebar activePage={"products"}></AdminSidebar>
                 
-                <ProductTable data={data}/>
+                <ProductTable data={data} setId={setId}/>
                 
             </div>
         

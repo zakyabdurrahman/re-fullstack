@@ -14,13 +14,13 @@ export default function CatsPage() {
     async function getCategories() {
 
         try {
-            const response = await axios.get(`${baseUrl}/branded-things/categories`, {
+            const response = await axios.get(`${baseUrl}/categories`, {
                 headers: {
                     Authorization: getBearerToken()
                 }
             });
         
-            setCats(response.data.data);
+            setCats(response.data.categories);
         } catch (error) {
             toast.error(error.message);
         }

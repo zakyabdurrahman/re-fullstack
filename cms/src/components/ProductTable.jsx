@@ -3,10 +3,24 @@ import ProductModal from "./ProductModal";
 import axios from "axios";
 import baseUrl from "../../utils/constants";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
+import getBearerToken from "../../utils/getBearerToken";
 
-export default function ProductTable({data}) {
+export default function ProductTable({data, setId}) {
 
-    
+    async function handleDelete(e) {
+        try {
+            const response = await axios.delete(`${baseUrl}/products/${e.target.value}`, {
+                headers: {
+                    Authorization: getBearerToken()
+                }
+            });
+            setId(e.target.value);
+            toast(response.data.message);
+        } catch (error) {
+            toast.error(error.message);
+        }
+    }
 
     return (
         <>
@@ -46,10 +60,16 @@ export default function ProductTable({data}) {
                                         <td className="w-52"><img className="w-52 h-52" src={product.imgUrl} alt="" /></td>
                                         <td>{product.description}</td>
                                         <td className="w-52">
-                                            <Link to={`/edit/${product.id}`}>
-                                                <button className="btn btn-primary" >Edit</button>
-                                            </Link>
-                                           
+
+                                            <div className="flex flex-col">
+                                                <Link to={`/edit/${product.id}`}>
+                                                    <button className="btn btn-primary" >Edit</button>
+                                                </Link>
+                                                <Link>
+                                                    <button value={product.id} onClick={handleDelete} className="btn btn-warning my-4">Delete</button>
+                                                </Link>
+                                            </div>
+                                            
                                             
                                             
                                         </td>
