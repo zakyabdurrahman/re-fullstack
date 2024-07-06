@@ -31,6 +31,7 @@ export default function AddUserForm() {
                 }
             })
             toast('Successfully added new user')
+            navigate('/')
         } catch (error) {
             console.log(error);
             
