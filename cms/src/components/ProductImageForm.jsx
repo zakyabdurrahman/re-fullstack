@@ -15,7 +15,8 @@ export default function ProductImageForm({product}) {
         e.preventDefault();
         const file = e.target[0].files[0];
         const form = new FormData();
-
+        
+        
         form.append('image', file);
 
         try {

@@ -41,12 +41,13 @@ export default function ProductForm({cats, product}) {
                     }
                 })
                 toast('Success Add Product');
+                navigate('/');
             }
             
             navigate('/')
         } catch (error) {
             console.log(error);
-            toast.error(error.message);
+            toast.error(error.response.data.message);
         }
     }
 
@@ -57,9 +58,8 @@ export default function ProductForm({cats, product}) {
             <h1 className="text-2xl text-center font-bold my-6">{product ? "Edit Product" : "Add Product"}</h1>
             <form onSubmit={handleSubmit}>
                 <div className="flex flex-col items-center">
-                    
                         <input type="text" name="name" id="formName" className="input input-bordered w-full max-w-xs" placeholder="Product Name" defaultValue={product ? product.name : ""}/>
-                        <input type="text" id="formDesc" className="input input-bordered w-full max-w-xs mt-4" placeholder="Product Description" defaultValue={product ?product.description : ""}/>
+                        <input type="text" id="formDesc" className="input input-bordered w-full max-w-xs mt-4" placeholder="Product Description" defaultValue={product ? product.description : ""}/>
                         <input type="text" id="formPrice" className="input input-bordered w-full max-w-xs mt-4" placeholder="Product Price" defaultValue={product ? product.price : ""}/>
                         <input type="text" id="formUrl" className="input input-bordered w-full max-w-xs mt-4" placeholder="Product Image URL" defaultValue={product ? product.imgUrl : ""}/>
                         <input type="text" id="formStock" className="input input-bordered w-full max-w-xs mt-4" placeholder="Product Stock" defaultValue={product ? product.stock : ""}/>
