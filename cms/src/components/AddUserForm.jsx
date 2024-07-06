@@ -3,6 +3,7 @@ import { toast } from "react-toastify"
 import baseUrl from "../../utils/constants";
 import getBearerToken from "../../utils/getBearerToken";
 import { useNavigate } from "react-router-dom";
+import BlackButton from "./BlackButton";
 
 export default function AddUserForm() {
 
@@ -58,7 +59,7 @@ export default function AddUserForm() {
                         <input type="text" id="formPhone" className="input input-bordered w-full max-w-xs mt-4" placeholder="Phone Number" />
                         <input type="text" id="formAddress" className="input input-bordered w-full max-w-xs mt-4" placeholder="Address" />
                         <input type="password" id="formPass" className="input input-bordered w-full max-w-xs mt-4" placeholder="Password" />
-                        <button className="btn mt-4">Add User</button>
+                        <BlackButton text="Add User"/>
                     
                     
                 </div>

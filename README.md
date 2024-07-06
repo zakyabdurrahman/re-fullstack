@@ -3,3 +3,8 @@
 
 > Tuliskan API Docs kamu di sini  
 URL web public: `https://re-fullstack-public.vercel.app/`  
+   
+## Credential  
+Admin
+email: german@gmail.com  
+password: sieg  

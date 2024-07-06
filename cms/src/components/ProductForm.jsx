@@ -3,7 +3,8 @@ import { toast } from "react-toastify"
 import baseUrl from "../../utils/constants";
 import getBearerToken from "../../utils/getBearerToken";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import BlackButton from "./BlackButton";
 
 export default function ProductForm({cats, product}) {
     
@@ -11,14 +12,11 @@ export default function ProductForm({cats, product}) {
 
     const navigate = useNavigate();
 
-    function formatPrice(e) {
-        const sanitizedInput = e.target.value.replaceAll(".", "");
-        console.log(sanitizedInput, "SANITIZED");
-        const formattedPrice = sanitizedInput.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-        setPrice(formattedPrice)
-    }
+   
 
+    
 
+    
     async function handleSubmit(e) {
         e.preventDefault();
         try {
@@ -71,7 +69,7 @@ export default function ProductForm({cats, product}) {
                 <div className="flex flex-col items-center">
                         <input type="text" name="name" id="formName" className="input input-bordered w-full max-w-xs" placeholder="Product Name" defaultValue={product ? product.name : ""}/>
                         <input type="text" id="formDesc" className="input input-bordered w-full max-w-xs mt-4" placeholder="Product Description" defaultValue={product ? product.description : ""}/>
-                        <input type="text" id="formPrice" onChange={formatPrice} value={price} className="input input-bordered w-full max-w-xs mt-4" placeholder="Product Price" defaultValue={product ? product.price : ""}/>
+                        <input type="text" id="formPrice"  className="input input-bordered w-full max-w-xs mt-4" placeholder="Product Price" defaultValue={product ? product.price : ""}/>
                         <input type="text" id="formUrl" className="input input-bordered w-full max-w-xs mt-4" placeholder="Product Image URL" defaultValue={product ? product.imgUrl : ""}/>
                         <input type="text" id="formStock" className="input input-bordered w-full max-w-xs mt-4" placeholder="Product Stock" defaultValue={product ? product.stock : ""}/>
                         <p className="mt-2">Category</p>
@@ -82,7 +80,7 @@ export default function ProductForm({cats, product}) {
                                 )
                             })}
                         </select>
-                        <button className="btn mt-4">Submit</button>
+                        <BlackButton text="Submit"></BlackButton>
                     
                     
                 </div>
